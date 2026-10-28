@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Yufei (Ella) Fan, interaction and product design portfolio: HaptiWind, CoolSense, LucidLoop and Life's End.">
+<title>Yufei (Ella) Fan · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one neutral shell; each project is a full-bleed chapter that takes on its own palette, as in the original boards. Single committed look per chapter. */
+:root{
+  color-scheme: light;
+  --shell:#F2F2EF; --ink:#151515; --muted:#5E605C; --rule:#D5D6D1;
+  --hw-bg:#E6ECEC; --hw-ink:#0F2F38; --hw-acc:#0FA9BE; --hw-soft:#BFE9EF;
+  --cs-bg:#0A0A0B; --cs-ink:#ECECEC; --cs-acc:#5B9BE0; --cs-soft:#1C1D20; --cs-muted:#9A9CA1;
+  --ll-bg:#DCDBFA; --ll-ink:#241E66; --ll-acc:#5A49E2; --ll-soft:#C3C0F7;
+  --le-bg:#FFEFD9; --le-ink:#3B2919; --le-acc:#E07F34; --le-soft:#F7D2AE;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --gut-l:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  --maxw:1240px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --cur:var(--ink);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--shell);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+blockquote{margin:0}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;font-weight:700;line-height:1.02}
+p{margin:0}
+
+/* ---------- nav ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--shell)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--shell) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.brand{white-space:nowrap;font-family:var(--f-display);font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.01em}
+.nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a.lnk{display:flex;align-items:center;gap:8px;text-decoration:none;padding:6px 10px;border-radius:999px;font-size:14px;white-space:nowrap;transition:background .3s,color .3s}
+.nav a.lnk:hover{background:#E3E4DF}
+.nav a.lnk.on{background:var(--ink);color:var(--shell)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--cur);transition:background .4s}
+@media (max-width:760px){.nav .lbl{display:none}.nav a.lnk{padding:8px}.dot{width:12px;height:12px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+#wind{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;padding-block:clamp(56px,9vw,120px) clamp(40px,6vw,72px)}
+.hero .eyebrow{color:var(--muted);margin-bottom:28px}
+.hero h1{font-size:clamp(46px,8.6vw,124px);letter-spacing:-.035em;font-weight:800;max-width:11ch}
+.hero h1 em{font-style:normal;font-weight:300}
+.hero h1 .w{display:inline-block;animation:rise .9s var(--ease) both;animation-delay:calc(var(--i) * 70ms)}
+@keyframes rise{from{transform:translateY(.45em);opacity:0}to{transform:none;opacity:1}}
+.hero .lede{margin-top:28px;max-width:56ch;font-size:clamp(17px,1.6vw,20px);color:#2E302D}
+.index{margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;perspective:1000px}
+.card{position:relative;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;aspect-ratio:4/5;padding:20px;border-radius:6px;text-decoration:none;overflow:hidden;isolation:isolate;transform-style:preserve-3d;transition:transform .5s var(--ease),box-shadow .5s;will-change:transform}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.28),transparent 45%);opacity:0;transition:opacity .4s;pointer-events:none}
+.card:hover{box-shadow:0 22px 44px -22px rgba(0,0,0,.4)}
+.card:hover::after{opacity:1}
+.card .sense{font-family:var(--f-display);font-size:clamp(28px,2.8vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1}
+.card .obj{display:flex;align-items:center;justify-content:center;min-height:0;padding:6% 10%}
+.card .obj img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 18px 18px rgba(0,0,0,.18));transition:transform .8s var(--ease);transform:translateZ(40px)}
+.card:hover .obj img{transform:translateZ(40px) translateY(-8px) scale(1.06)}
+.card .obj img.print{background:#fff;padding:6px;border-radius:3px;transform:translateZ(40px) rotate(-4deg);filter:drop-shadow(0 18px 22px rgba(0,0,0,.55));max-height:92%}
+.card:hover .obj img.print{transform:translateZ(40px) rotate(0deg) scale(1.06)}
+.card .meta{display:grid;gap:2px}
+.card .nm{font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px}
+.card .nm i{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.card .md{font-size:13px;opacity:.75}
+.card .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--acc);transition:width .6s var(--ease)}
+.card:hover .bar{width:100%}
+.i-hw{background:var(--hw-bg);color:var(--hw-ink)}
+.i-cs{background:var(--cs-bg);color:var(--cs-ink)}
+.i-ll{background:var(--ll-bg);color:var(--ll-ink)}
+.i-le{background:var(--le-bg);color:var(--le-ink)}
+@media (max-width:900px){.index{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.card{aspect-ratio:3/4;padding:14px}}
+
+
+/* ---------- chapters ---------- */
+.ch{padding-block:clamp(64px,9vw,128px);position:relative}
+.ch-head{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end}
+.ch-kicker{display:flex;gap:14px;align-items:center;margin-bottom:22px;flex-wrap:wrap}
+.ch h2{font-size:clamp(52px,8vw,112px);letter-spacing:-.04em;font-weight:800}
+.ch h2 .ch-l{display:inline-block}
+.ch .sub{margin-top:14px;font-family:var(--f-display);font-weight:300;font-size:clamp(20px,2.2vw,28px);line-height:1.2;max-width:24ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.tags span{font-family:var(--f-mono);font-size:11.5px;padding:4px 9px;border-radius:999px;border:1px solid currentColor;opacity:.8;transition:transform .3s var(--ease),opacity .3s}
+.tags span:hover{transform:translateY(-2px);opacity:1}
+.summary{font-size:17px;max-width:58ch;display:grid;gap:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;font:500 14px var(--f-body);text-decoration:none;cursor:pointer;border:1px solid currentColor;background:transparent;color:inherit;transition:background .25s,color .25s,transform .25s var(--ease)}
+.btn:active{transform:scale(.96)}
+.btn svg{width:14px;height:14px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:rotate(90deg)}
+.btn.solid{border-color:transparent}
+.ripple{position:absolute;border-radius:50%;pointer-events:none;background:currentColor;opacity:.28;transform:scale(0);animation:rip .6s ease-out forwards}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+
+.figure{margin:0}
+.figure figcaption{margin-top:10px;font-size:13px;opacity:.7}
+.zoom{position:relative;cursor:zoom-in;padding:0;border:0;background:none;display:block;width:100%;text-align:left;color:inherit;overflow:hidden;border-radius:3px;isolation:isolate}
+.zoom img{transition:transform .9s var(--ease),filter .6s}
+.zoom:hover img{transform:scale(1.045)}
+.zoom::after{content:"";position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:rgba(20,20,20,.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center/16px no-repeat;opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s var(--ease)}
+.zoom:hover::after,.zoom:focus-visible::after{opacity:1;transform:none}
+
+.grid{display:grid;gap:clamp(12px,1.6vw,20px)}
+.g-hero{margin-top:clamp(40px,6vw,72px)}
+.row{display:grid;gap:clamp(12px,1.6vw,20px);margin-top:clamp(12px,1.6vw,20px)}
+.sec{margin-top:clamp(56px,8vw,104px)}
+.sec-h{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:start}
+.sec-h h3{font-size:clamp(28px,3.2vw,42px);letter-spacing:-.025em}
+.sec-h .body{display:grid;gap:14px;max-width:62ch}
+.lbl-s{margin-bottom:12px;opacity:.7}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:clamp(32px,4vw,48px);border-radius:4px;overflow:hidden}
+.stat{padding:22px 20px;display:flex;flex-direction:column;gap:8px;transition:transform .4s var(--ease)}
+.stat:hover,.stat.rv.in:hover{transform:translateY(-3px)}
+.stat b{font-family:var(--f-display);font-weight:800;font-size:clamp(38px,4.4vw,60px);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;line-height:1.4}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:28px}
+.step{padding-top:16px;border-top:2px solid currentColor;position:relative}
+.step::before{content:"";position:absolute;left:0;top:-2px;height:2px;width:0;background:var(--hw-acc);transition:width .9s var(--ease)}
+.step.lit::before,.step:hover::before{width:100%}
+.step .k{font-family:var(--f-display);font-weight:700;font-size:22px;margin-bottom:6px}
+.step p{font-size:14.5px;opacity:.85}
+
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:28px}
+.quote{padding:22px;border-radius:4px;display:grid;gap:14px;align-content:space-between;transition:transform .4s var(--ease),box-shadow .4s}
+.quote:hover,.quote.rv.in:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--cs-acc)}
+.quote p{font-family:var(--f-display);font-weight:300;font-size:clamp(18px,1.7vw,22px);line-height:1.3}
+.quote footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
+
+.tbl-wrap{overflow-x:auto;margin-top:28px}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px 12px 0;border-bottom:1px solid}
+th{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+td{transition:background .3s}
+td:hover{background:rgba(15,169,190,.08)}
+td b{display:block;font-weight:600}
+td .n{font-family:var(--f-mono);font-size:12px;opacity:.8;font-variant-numeric:tabular-nums}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pills span{padding:8px 14px;border-radius:999px;font-size:14px;transition:transform .35s var(--ease)}
+.pills span:hover,.pills span.rv.in:hover{transform:translateY(-3px) rotate(-1deg)}
+
+@media (max-width:860px){
+  .ch-head,.sec-h{grid-template-columns:minmax(0,1fr)}
+  .stats,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quotes{grid-template-columns:minmax(0,1fr)}
+  .row{grid-template-columns:minmax(0,1fr)!important}
+}
+
+/* --- HaptiWind --- */
+#haptiwind{background:var(--hw-bg);color:var(--hw-ink);overflow:hidden}
+#haptiwind .btn.solid{background:var(--hw-ink);color:var(--hw-bg)}
+#haptiwind .btn:hover{background:var(--hw-acc);color:#fff;border-color:var(--hw-acc)}
+#haptiwind .stats{background:#C9D6D6}
+#haptiwind .stat{background:var(--hw-bg)}
+#haptiwind .stat b{color:var(--hw-acc)}
+#haptiwind th,#haptiwind td{border-color:#BFCDCD}
+.hw-label .tagline{position:absolute;left:12px;top:12px;z-index:2;background:var(--hw-ink);color:var(--hw-bg);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:2px;transition:transform .4s var(--ease)}
+.hw-label:hover .tagline{transform:translateX(4px)}
+.plan{padding:20px;border-radius:4px;display:grid;gap:12px;align-content:start;transition:transform .4s var(--ease)}
+.plan:hover,.plan.rv.in:hover{transform:translateY(-3px)}
+.plan.a{background:#D8E2E2}
+.plan.b{background:var(--hw-soft)}
+.plan h4{margin:0;font-family:var(--f-display);font-size:22px;letter-spacing:-.01em}
+.plan ul{margin:0;padding-left:18px;font-size:14.5px;display:grid;gap:4px}
+.gust{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.gust i{position:absolute;left:-30%;height:1px;width:30%;background:linear-gradient(90deg,transparent,var(--hw-acc),transparent);opacity:.35;animation:gust linear infinite}
+@keyframes gust{to{transform:translateX(450%)}}
+
+/* --- CoolSense --- */
+#coolsense{background:var(--cs-bg);color:var(--cs-ink);overflow:hidden}
+#coolsense .muted{color:var(--cs-muted)}
+#coolsense .btn:hover{background:var(--cs-ink);color:var(--cs-bg);border-color:var(--cs-ink)}
+#coolsense .quote{background:var(--cs-soft)}
+#coolsense .quote .who{color:var(--cs-acc)}
+#coolsense .stats{background:#26272B}
+#coolsense .stat{background:var(--cs-bg)}
+#coolsense .stat b{color:var(--cs-acc)}
+.frost{position:absolute;left:0;top:0;width:100%;pointer-events:none}
+.zone{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:22px}
+.zone div{padding:12px;border-radius:3px;font-size:13.5px;line-height:1.35;background:var(--cs-soft);cursor:default;transition:transform .35s var(--ease),background .35s}
+.zone div:hover,.zone div.rv.in:hover{transform:translateY(-4px)}
+.zone div b{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;color:var(--cs-muted)}
+.zone .peak{background:var(--cs-acc);color:#06121F;animation:cool 2.8s ease-in-out infinite}
+.zone .peak b{color:#06121F}
+@keyframes cool{50%{box-shadow:0 0 0 6px rgba(91,155,224,.18),0 0 28px rgba(91,155,224,.45)}}
+@media (max-width:600px){.zone{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.just{display:flex;gap:clamp(10px,1.4vw,16px);align-items:flex-start}
+.just > *{flex:var(--a) 1 0;min-width:0;aspect-ratio:var(--a)}
+.just .stack{display:flex;flex-direction:column;gap:clamp(10px,1.4vw,16px)}
+.just .stack > *{flex:1 1 0;min-height:0}
+.just .zoom{height:100%;border-radius:6px;transition:opacity .45s,transform .5s var(--ease)}
+.just .zoom img{width:100%;height:100%;object-fit:cover}
+.just:hover .zoom:not(:hover){opacity:.42}
+.just .zoom:hover{transform:translateY(-4px)}
+.just .zoom .cap-chip{opacity:0;transform:translateY(8px);transition:opacity .35s,transform .45s var(--ease)}
+.just .zoom:hover .cap-chip,.just .zoom:focus-visible .cap-chip{opacity:1;transform:none}
+.just-note{margin-top:10px;font-size:12.5px;color:var(--cs-muted);font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:700px){.just{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.just > .stack{grid-column:1 / -1;aspect-ratio:auto;flex-direction:row}.just .stack > *{aspect-ratio:var(--a)}}
+.cap-chip{position:absolute;left:12px;bottom:12px;z-index:2;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:rgba(10,10,11,.78);color:#ECECEC;backdrop-filter:blur(4px);transition:transform .4s var(--ease)}
+@media (max-width:700px){.bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:260px 260px 200px;grid-template-areas:"a b" "a b" "c d"}}
+.panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:clamp(28px,3vw,40px)}
+.panel{margin:0;display:grid;gap:10px}
+.panel .zoom{aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:clamp(14px,2.2vw,28px);border-radius:6px;background:var(--pbg);border:1px solid #23222A}
+.panel .zoom img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.panel figcaption{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--cs-muted)}
+.panel figcaption b{color:var(--cs-ink);font-weight:500}
+@media (max-width:700px){.panels{grid-template-columns:minmax(0,1fr)}}
+.principle{margin-top:22px;padding:22px;border:1px solid #3A3B40;border-radius:4px;font-family:var(--f-display);font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.25}
+.principle b{font-weight:700;color:var(--cs-acc)}
+
+/* --- LucidLoop --- */
+#lucidloop{background:var(--ll-bg);color:var(--ll-ink);position:relative;overflow:hidden}
+#lucidloop h2{font-style:italic;color:var(--ll-acc)}
+#lucidloop .btn.solid{background:var(--ll-acc);color:#fff}
+#lucidloop .btn:hover{background:var(--ll-ink);color:var(--ll-bg);border-color:var(--ll-ink)}
+#lucidloop .stats{background:var(--ll-soft)}
+#lucidloop .stat{background:#E8E7FC}
+#lucidloop .stat b{color:var(--ll-acc)}
+#lucidloop .pills span{background:#EDECFD;border:1px solid var(--ll-soft)}
+.orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;pointer-events:none;animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(8vw,6vh) scale(1.15)}}
+.bars{display:grid;gap:10px;margin-top:22px}
+.bar-r{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) 52px;gap:12px;align-items:center;font-size:14px}
+.bar-r .t{height:14px;background:#EDECFD;border-radius:2px;overflow:hidden}
+.bar-r .t i{display:block;height:100%;background:var(--ll-acc);border-radius:2px;transition:width 1.4s var(--ease),filter .3s}
+.bar-r:hover .t i{filter:brightness(1.25)}
+.bar-r .v{font-family:var(--f-mono);font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:600px){.bar-r{grid-template-columns:minmax(0,1fr) 52px}.bar-r .t{grid-column:1 / -1;order:3}}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:28px}
+.flow .phase{background:#EDECFD;border-radius:4px;padding:20px;display:grid;gap:10px;align-content:start;transition:transform .4s var(--ease),background .4s}
+.flow .phase:hover,.flow .phase.rv.in:hover{transform:translateY(-4px);background:#F4F3FF}
+.flow .phase .mono{color:var(--ll-acc)}
+.flow .phase h4{margin:0;font-family:var(--f-display);font-size:22px}
+.flow .phase p{font-size:14.5px}
+@media (max-width:860px){.flow{grid-template-columns:minmax(0,1fr)}}
+.dark-plate{background:#3A3A3F}
+
+/* --- Life's End --- */
+#lifesend{background:var(--le-bg);color:var(--le-ink)}
+#lifesend .btn.solid{background:var(--le-acc);color:#fff}
+#lifesend .btn:hover{background:var(--le-ink);color:var(--le-bg);border-color:var(--le-ink)}
+.stages{display:flex;margin-top:24px;flex-wrap:wrap;gap:4px}
+.stages span{flex:1 1 120px;padding:12px 18px 12px 14px;font-family:var(--f-display);font-weight:700;font-size:18px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,8px 50%);transition:flex-grow .5s var(--ease)}
+.stages span:hover{flex-grow:1.6}
+.stages span:nth-child(1){background:#F6D9A6}
+.stages span:nth-child(2){background:#F2B57C}
+.stages span:nth-child(3){background:#E07F34;color:#fff}
+.stages span:nth-child(4){background:#A9442A;color:#fff}
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:28px;perspective:900px}
+.role{border-radius:4px;padding:0;display:block;cursor:pointer;min-height:160px;transition:transform .7s var(--ease);transform-style:preserve-3d;position:relative;border:0;text-align:left;font:inherit}
+.role .face,.role .back{position:absolute;inset:0;padding:22px;display:grid;gap:8px;align-content:start;border-radius:4px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.role .back{transform:rotateY(180deg);align-content:center}
+.role.flip,.role.flip.rv.in{transform:rotateY(180deg)}
+.role h4{margin:0;font-family:var(--f-display);font-size:26px;letter-spacing:-.01em}
+.role p{font-size:14.5px;margin:0}
+.role .hint{font-family:var(--f-mono);font-size:11px;opacity:.7;letter-spacing:.06em;text-transform:uppercase}
+.r1 .face,.r1 .back{background:#3F7C47;color:#F4F8EE}
+.r2 .face,.r2 .back{background:#E9973F;color:#2F1A08}
+.r3 .face,.r3 .back{background:#4C3A28;color:#F6EBDD}
+@media (max-width:760px){.roles{grid-template-columns:minmax(0,1fr)}}
+.callout{background:var(--le-acc);color:#fff;padding:22px;border-radius:4px;font-weight:500;font-size:16px}
+.keyline{border-left:3px solid var(--le-acc);padding-left:16px;font-family:var(--f-display);font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.3}
+
+/* ---------- boards ---------- */
+#boards{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--rule)}
+#boards h2{font-size:clamp(40px,6vw,80px);letter-spacing:-.035em;font-weight:800}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:24px}
+.filters button{position:relative;overflow:hidden;font:500 13.5px var(--f-body);padding:7px 14px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;display:flex;gap:8px;align-items:center;transition:background .25s,color .25s}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--shell);border-color:var(--ink)}
+.board-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}
+.board-grid button{padding:0;border:0;background:#E3E4DF;cursor:zoom-in;border-radius:3px;overflow:hidden;position:relative}
+.board-grid button.pop{animation:pop .55s var(--ease) both}
+@keyframes pop{from{transform:scale(.92);opacity:0}}
+.board-grid img{aspect-ratio:1770/1263;object-fit:cover;width:100%;transition:transform .6s var(--ease)}
+.board-grid button:hover img{transform:scale(1.05)}
+.board-grid .pg{position:absolute;left:8px;bottom:8px;background:rgba(20,20,20,.78);color:#fff;font-family:var(--f-mono);font-size:11px;padding:3px 7px;border-radius:2px}
+@media (max-width:900px){.board-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:#EDEDE8}
+.foot .wrap{padding-block:clamp(56px,8vw,96px) 40px;display:grid;gap:40px}
+.foot h2{font-size:clamp(40px,6.4vw,88px);letter-spacing:-.035em;font-weight:800;max-width:14ch}
+.foot .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border-top:1px solid #3A3A38;padding-top:24px;font-size:15px}
+.foot .cols .mono{color:#9C9D97;margin-bottom:8px}
+.foot .fine{font-size:12.5px;color:#8B8C86}
+@media (max-width:700px){.foot .cols{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- reveal: applied by script only to elements below the first screen ---------- */
+.rv{opacity:0;transform:translateY(34px) scale(.985);transition:opacity .9s var(--ease),transform .9s var(--ease),clip-path 1.1s var(--ease);transition-delay:var(--d,0ms)}
+.rv.in{opacity:1;transform:none}
+.rv-img{clip-path:inset(14% 0 0 0 round 3px)}
+.rv-img.in{clip-path:inset(0 0 0 0 round 3px)}
+.split .ch-l{transform:translateY(.9em) rotate(6deg);opacity:0;transition:transform .8s var(--ease),opacity .8s;transition-delay:calc(var(--i) * 35ms)}
+.split.in .ch-l{transform:none;opacity:1}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:100;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:calc(env(safe-area-inset-top,0px) + 12px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 12px) var(--gut-l);color:#eee}
+.lb-bg{position:absolute;inset:0;background:rgba(10,10,10,.94);opacity:0;transition:opacity .45s ease}
+.lb.open .lb-bg{opacity:1}
+.lb-top,.lb-bot{position:relative;opacity:0;transform:translateY(-8px);transition:opacity .4s .15s,transform .4s .15s var(--ease)}
+.lb-bot{transform:translateY(8px)}
+.lb.open .lb-top,.lb.open .lb-bot{opacity:1;transform:none}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px}
+.lb-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;overflow:auto;touch-action:pan-y}
+.lb-stage img{max-height:100%;max-width:100%;object-fit:contain;border-radius:2px;transform-origin:0 0}
+.lb-stage.full{align-items:flex-start;justify-content:flex-start}
+.lb-stage.full img{max-height:none;max-width:none;width:min(2400px,200vw)}
+.lb button{position:relative;overflow:hidden;background:#262626;color:#eee;border:0;border-radius:999px;height:40px;min-width:40px;padding:0 14px;font:500 13px var(--f-body);cursor:pointer;transition:background .2s,transform .2s}
+.lb button:hover{background:#3a3a3a}
+.lb button:active{transform:scale(.92)}
+.lb-bot{display:flex;justify-content:center;align-items:center;gap:12px;padding-top:10px}
+.lb-cap{font-size:13px;color:#bbb}
+.lb-dots{display:flex;gap:6px;align-items:center}
+.lb-dots i{width:6px;height:6px;border-radius:50%;background:#555;transition:background .3s,transform .3s}
+.lb-dots i.on{background:#fff;transform:scale(1.4)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+
+<nav class="nav" aria-label="Projects">
+  <div class="wrap">
+    <a class="brand" href="#top">Ella Fan</a>
+    <ul>
+      <li><a class="lnk" href="#haptiwind"><i class="dot" style="background:var(--hw-acc)"></i><span class="lbl">HaptiWind</span></a></li>
+      <li><a class="lnk" href="#coolsense"><i class="dot" style="background:#111;box-shadow:inset 0 0 0 3px var(--cs-acc)"></i><span class="lbl">CoolSense</span></a></li>
+      <li><a class="lnk" href="#lucidloop"><i class="dot" style="background:var(--ll-acc)"></i><span class="lbl">LucidLoop</span></a></li>
+      <li><a class="lnk" href="#lifesend"><i class="dot" style="background:var(--le-acc)"></i><span class="lbl">Life’s End</span></a></li>
+      <li><a class="lnk" href="#boards"><span>Boards</span></a></li>
+    </ul>
+  </div>
+  <div class="progress" id="prog"></div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="wind" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="mono eyebrow">Yufei (Ella) Fan · Interaction &amp; Product Design · 4 projects</p>
+    <h1><span class="w" style="--i:0">Designing</span> <span class="w" style="--i:1">what</span> <span class="w" style="--i:2">screens</span> <em><span class="w" style="--i:3">leave</span> <span class="w" style="--i:4">out.</span></em></h1>
+    <p class="lede">Touch across a video call. Calm in front of an audience. The end of a dream you woke up from. The choices other people quietly make for you. Each project starts from a feeling that technology usually flattens, and builds hardware, software or play to bring it back.</p>
+    <div class="index">
+      <a class="card i-hw tilt" href="#haptiwind" style="--acc:var(--hw-acc)"><div class="sense">Touch</div><div class="obj"><img src="obj-hw.webp" alt=""></div><div class="meta"><div class="nm"><i></i>HaptiWind</div><div class="md">Wind-based haptic system</div></div><span class="bar"></span></a>
+      <a class="card i-cs tilt" href="#coolsense" style="--acc:var(--cs-acc)"><div class="sense">Calm</div><div class="obj"><img class="print" src="cs-collar.webp" alt=""></div><div class="meta"><div class="nm"><i></i>CoolSense</div><div class="md">Stress-sensing wearable</div></div><span class="bar"></span></a>
+      <a class="card i-ll tilt" href="#lucidloop" style="--acc:var(--ll-acc)"><div class="sense">Dream</div><div class="obj"><img src="obj-ll.webp" alt=""></div><div class="meta"><div class="nm"><i></i>LucidLoop</div><div class="md">EEG headband + app</div></div><span class="bar"></span></a>
+      <a class="card i-le tilt" href="#lifesend" style="--acc:var(--le-acc)"><div class="sense">Choice</div><div class="obj"><img src="obj-le.webp" alt=""></div><div class="meta"><div class="nm"><i></i>Life’s End</div><div class="md">AI-powered board game</div></div><span class="bar"></span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HaptiWind ================= -->
+<section class="ch" id="haptiwind" aria-labelledby="hw-t" data-c="var(--hw-acc)">
+  <div class="gust" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <div class="ch-head">
+      <div>
+        <div class="ch-kicker"><span class="mono">Touch</span><span class="mono">·</span><span class="mono">Remote haptics</span></div>
+        <h2 id="hw-t">HaptiWind</h2>
+        <p class="sub">Wind-based haptic feedback for remote communication.</p>
+        <div class="tags"><span>#RemoteHaptics</span><span>#InteractiveSystem</span><span>#GestureDrivenMovement</span><span>#TactileCommunication</span></div>
+      </div>
+      <div>
+        <div class="summary">
+          <p>As an international student, I can only reach the people I love through a screen during important moments. Video and voice keep us in touch, but they lack the warmth of real presence.</p>
+          <p>HaptiWind adds a third sense to a video call. A gesture sensor reads one person’s hand, and a motorized air duct on the other side moves and shapes a stream of air to match it, so a high-five or a gentle touch arrives as wind on the skin.</p>
+        </div>
+        <div class="actions">
+          <button class="btn solid" type="button" data-boards="1-5"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>Original boards</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-hero" style="grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)">
+      <button class="zoom hw-label" data-src="hw-rig.webp" data-cap="Plan B prototype: a 2-axis motorized air duct inside an acrylic enclosure."><img src="hw-rig.webp" alt="HaptiWind prototype: motorized air duct on a two-axis rail inside an acrylic box" decoding="async"><span class="tagline">Movable air duct</span></button>
+      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));align-content:space-between">
+        <button class="zoom hw-label" data-src="hw-send1.webp" data-cap="Sender: hand movement read by a Leap Motion sensor."><img src="hw-send1.webp" alt="Sender reaching toward a laptop with a hand tracking view" decoding="async"><span class="tagline">Sender</span></button>
+        <button class="zoom hw-label" data-src="hw-send2.webp" data-cap="Sender: a second gesture position."><img src="hw-send2.webp" alt="Sender making a second gesture" decoding="async"><span class="tagline">Sender</span></button>
+        <button class="zoom hw-label" data-src="hw-recv1.webp" data-cap="Receiver: the duct follows and blows air onto the hand."><img src="hw-recv1.webp" alt="Receiver's hand under the moving air duct" decoding="async"><span class="tagline">Receiver</span></button>
+        <button class="zoom hw-label" data-src="hw-recv2.webp" data-cap="Receiver: the duct repositions to match the sender."><img src="hw-recv2.webp" alt="Receiver's hand with the duct in a new position" decoding="async"><span class="tagline">Receiver</span></button>
+      </div>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Research</p><h3>Can the brain be tricked into feeling touch?</h3></div>
+      <div class="body">
+        <p>We perceive presence through <b>multisensory integration</b>: vision, hearing and touch combine into one sense of “being there.” Remote calls deliver only two of the three.</p>
+        <p>Research on sensory substitution and mirror-touch synesthesia shows that touch can be re-mapped. Force Image Schema theory adds that the brain reads force through familiar patterns of speed, direction, pressure and temperature. If wind reproduces those cues, it can read as touch.</p>
+        <p>Compared with solid (vibration motors) and liquid media, air is easy to install, common in daily life, contact-free, and can vary in temperature, direction, force and rhythm.</p>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" role="region" aria-label="Wind characteristics table" tabindex="0">
+      <table>
+        <thead><tr><th>By speed</th><th>By temperature</th><th>By rhythm</th></tr></thead>
+        <tbody>
+          <tr><td><b>Light breeze</b><span class="n">0.3–1 m/s</span> Soft stroking or a gentle caress</td><td><b>Cool wind</b><span class="n">&lt; 30 °C</span> Refreshing, slightly sharp</td><td><b>Continuous</b> Steady flow, calming</td></tr>
+          <tr><td><b>Gentle wind</b><span class="n">1–3 m/s</span> Light patting or tender touch</td><td><b>Warm wind</b><span class="n">30–37 °C</span> Recreates the warmth of a hug</td><td><b>Intermittent</b> Rhythmic bursts like patting or massage</td></tr>
+          <tr><td><b>Strong wind</b><span class="n">3–7 m/s</span> Pressing, hugging or wrapping</td><td><b>Hot wind</b><span class="n">&gt; 37 °C</span> Intense, for alerts</td><td><b>Pulsed</b> Sudden short bursts for strong signals</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stats" aria-label="Key findings">
+      <div class="stat"><b data-count="1" data-pad="2">01</b><span>Airflow and its variation can simulate stroking, tapping, pressing and wrapping.</span></div>
+      <div class="stat"><b data-count="2" data-pad="2">02</b><span>Temperature control adds realism and comfort to tactile experiences.</span></div>
+      <div class="stat"><b data-count="3" data-pad="2">03</b><span>Directional cues let users tell interaction zones apart: front, back, sides.</span></div>
+      <div class="stat"><b data-count="4" data-pad="2">04</b><span>Syncing wind rhythm with video and audio strongly boosts the sense of presence.</span></div>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">System</p><h3>Sense, interpret, transmit, activate</h3></div>
+      <div class="body"><p>Hand gestures are captured in real time, turned into control signals and sent to a remote receiver, which generates matching airflow patterns. Each gesture is mapped to a wind profile.</p>
+        <div class="pills"><span style="background:#F7EBA0">Pinch · light, brief warm pulses</span><span style="background:#D9F2B8">Punch · strong bursts of warm air</span><span style="background:var(--hw-soft)">High five · quick, sharp bursts</span></div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="k">Sense</div><p>Leap Motion reads the hand position as tx, ty, tz.</p></div>
+      <div class="step"><div class="k">Interpret</div><p>TouchDesigner maps tx and tz to the machine range and the gesture to a PWM range.</p></div>
+      <div class="step"><div class="k">Transmit</div><p>A Serial DAT in TouchDesigner sends a command string to the Arduino.</p></div>
+      <div class="step"><div class="k">Activate</div><p>The Arduino parses X, Z and A, drives the stepper motors and sets the air pump.</p></div>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1fr)">
+      <button class="zoom" data-src="hw-workflow.webp" data-cap="Workflow: motion recognition (sender) → real-time data transmission → haptic feedback (receiver)."><img src="hw-workflow.webp" alt="System workflow diagram from sender to receiver" loading="lazy" decoding="async"></button>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Iteration</p><h3>From fixed outlets to a moving duct</h3></div>
+      <div class="body"><p>The first version used a fan with swappable outlets. Mapping was clear, but fixed outlets could not deliver direction. The second version put the air pump on a two-axis stepper rig so the airflow follows the hand.</p></div>
+    </div>
+    <div class="row" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="plan a"><span class="mono">Plan A</span><h4>Valve and outlet control</h4><ul><li>Clear gesture-to-airflow mapping</li><li>Limited realism due to fixed outlets</li><li>Hard to deliver directional or immersive feedback</li></ul></div>
+      <div class="plan b"><span class="mono">Plan B · final</span><h4>Movable air duct control</h4><ul><li>More natural and dynamic touch simulation</li><li>Better spatial accuracy and realism</li><li>Slightly more complex, but worth it for the experience</li></ul></div>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+      <button class="zoom hw-label" data-src="hw-planb.webp" data-cap="Plan B experiments with the TouchDesigner patch."><img src="hw-planb.webp" alt="Plan B rig next to a TouchDesigner patch" loading="lazy" decoding="async" style="height:100%;object-fit:cover"><span class="tagline">Plan B rig + TouchDesigner</span></button>
+      <div class="grid" style="grid-template-rows:auto auto;align-content:space-between">
+        <button class="zoom hw-label" data-src="hw-circuit.webp" data-cap="Circuit: Leap Motion, Arduino Uno, stepper drivers, motor, PWM motor driver."><img src="hw-circuit.webp" alt="Circuit diagram with Leap Motion, Arduino and stepper rig" loading="lazy" decoding="async"><span class="tagline">Circuit</span></button>
+        <button class="zoom hw-label" data-src="hw-gestures.webp" data-cap="The three tracked gestures: pinch, punch, high five."><img src="hw-gestures.webp" alt="Three hand-tracking captures" loading="lazy" decoding="async"><span class="tagline">Three tracked gestures</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CoolSense ================= -->
+<section class="ch" id="coolsense" aria-labelledby="cs-t" data-c="var(--cs-acc)">
+  <canvas class="frost" id="frost" aria-hidden="true"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="ch-head">
+      <div>
+        <div class="ch-kicker"><span class="mono">Calm</span><span class="mono">·</span><span class="mono">Smart wearable</span></div>
+        <h2 id="cs-t">CoolSense</h2>
+        <p class="sub">A personal device for self-emotional awareness and regulation.</p>
+        <div class="tags"><span>#SmartWearable</span><span>#EmotionalRegulation</span><span>#GSRSensor</span><span>#StressManagement</span></div>
+      </div>
+      <div>
+        <div class="summary">
+          <p>Public speaking, presentations and academic defenses make stress visible: flushing, sweating, a shaky voice. Once people notice, the anxiety gets worse.</p>
+          <p>CoolSense is a collar that reads skin conductance through a GSR sensor. When arousal passes a set threshold, it cools the carotid area at the neck, helping the wearer return to a focused state without numbing them.</p>
+        </div>
+        <div class="actions">
+          <button class="btn" type="button" data-boards="6-10"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>Original boards</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="just g-hero">
+      <button class="zoom" style="--a:.8673" data-src="cs-model.webp" data-cap="The collar worn as part of an outfit."><img src="cs-model.webp" alt="The CoolSense collar worn at the neck" loading="lazy" decoding="async"><span class="cap-chip">Worn</span></button>
+      <button class="zoom" style="--a:.6155" data-src="cs-collar.webp" data-cap="Final prototype: fabric collar with cooling modules and the control box."><img src="cs-collar.webp" alt="White fabric collar with copper cooling plates and control box" loading="lazy" decoding="async"><span class="cap-chip">Final prototype</span></button>
+      <div class="stack" style="--a:.5739">
+        <button class="zoom" style="--a:1.1" data-src="cs-lab1.webp" data-cap="GSR sensor and cooling module (TEC + fan)."><img src="cs-lab1.webp" alt="Labeled GSR sensor and cooling module" loading="lazy" decoding="async"><span class="cap-chip">Cooling module</span></button>
+        <button class="zoom" style="--a:1.2" data-src="cs-lab2.webp" data-cap="Microcontroller, PWM MOSFET and battery."><img src="cs-lab2.webp" alt="Labeled microcontroller box" loading="lazy" decoding="async"><span class="cap-chip">Controller</span></button>
+      </div>
+    </div>
+    <p class="just-note">Hover to focus · click to enlarge</p>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Theory</p><h3>Stay at the peak, not below it</h3></div>
+      <div class="body">
+        <p class="muted">The Yerkes–Dodson law describes performance as a curve over arousal. Too little and we are disengaged; too much and executive function and verbal fluency break down. Real-time physiological intervention can flatten the curve back toward focus.</p>
+        <div class="zone">
+          <div><b>Zone 1</b>Calm, relaxed</div>
+          <div class="peak"><b>Zone 2 · peak</b>Engaged, focused</div>
+          <div><b>Zone 3</b>Frustrated, anxious</div>
+          <div><b>Zone 4</b>Overwhelmed</div>
+        </div>
+        <div class="principle"><b>CoolSense is not a relaxation device</b> that constantly suppresses emotion. It intervenes only when the wearer leaves the optimal zone.</div>
+      </div>
+    </div>
+
+    <div class="panels">
+      <figure class="panel"><button class="zoom" style="--pbg:#000" data-src="cs-yerkes.webp" data-cap="Yerkes–Dodson law. Image source: Barking Brains (cited on the original board)."><img src="cs-yerkes.webp" alt="Yerkes-Dodson performance curve" loading="lazy" decoding="async"></button><figcaption><b>Yerkes–Dodson curve</b><span>Source cited on board</span></figcaption></figure>
+      <figure class="panel"><button class="zoom" style="--pbg:#090311" data-src="cs-gsrflow.webp" data-cap="GSR loop: stress → sweat → higher skin conductance → detection → cooling."><img src="cs-gsrflow.webp" alt="GSR detection loop diagram" loading="lazy" decoding="async"></button><figcaption><b>How GSR detects stress</b><span>7-step loop</span></figcaption></figure>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Why these choices</p><h3>GSR to sense, the carotid to cool</h3></div>
+      <div class="body">
+        <p class="muted">HRV, EMG, EEG and facial recognition were all considered. EEG and face tracking offer rich data but need complex equipment or raise privacy concerns. GSR balances sensitivity, portability and real-time response.</p>
+        <p class="muted">Cooling the carotid area helps regulate the autonomic nervous system and prevents visible responses like facial flushing.</p>
+      </div>
+    </div>
+
+    <div class="stats" aria-label="Prototype components">
+      <div class="stat"><b>GSR</b><span>Measures skin conductance changes</span></div>
+      <div class="stat"><b>TEC</b><span>Peltier chip + fan cools the neck</span></div>
+      <div class="stat"><b>MCU</b><span>Arduino reads data, triggers cooling</span></div>
+      <div class="stat"><b>PWM</b><span>MOSFET regulates cooling power</span></div>
+    </div>
+
+    <div class="just" style="margin-top:clamp(20px,2.4vw,32px)">
+      <button class="zoom" style="--a:1.5135" data-src="cs-class1.webp" data-cap="Mock presentation in a classroom: the tester adjusts the collar at the podium."><img src="cs-class1.webp" alt="Tester at a podium touching the collar at her neck" loading="lazy" decoding="async"><span class="cap-chip">At the podium</span></button>
+      <button class="zoom" style="--a:1.4298" data-src="cs-class2.webp" data-cap="Putting on the collar before presenting."><img src="cs-class2.webp" alt="Tester putting on the collar in a classroom" loading="lazy" decoding="async"><span class="cap-chip">Putting it on</span></button>
+      <button class="zoom" style="--a:1.1584" data-src="cs-hw1.webp" data-cap="Cooling modules with GSR electrode snaps."><img src="cs-hw1.webp" alt="Two white cooling modules with electrode snaps" loading="lazy" decoding="async"><span class="cap-chip">Cooling modules</span></button>
+      <button class="zoom" style="--a:1.2317" data-src="cs-hw2.webp" data-cap="Controller box: Arduino, sensor shield and PWM MOSFET."><img src="cs-hw2.webp" alt="Controller box with Arduino and wiring" loading="lazy" decoding="async"><span class="cap-chip">Controller box</span></button>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">User testing</p><h3>Mock presentations, four testers</h3></div>
+      <div class="body"><p class="muted">The goal was to test whether the system can detect stress and intervene effectively while people give mock presentations.</p></div>
+    </div>
+    <div class="quotes">
+      <blockquote class="quote"><p>“The cooling sensation was very natural, not bulky like traditional wearables. I felt ‘taken care of,’ so it didn’t bother me as much.”</p><footer><span class="who">Helen Yang</span><span class="muted">Natural · Comfortable</span></footer></blockquote>
+      <blockquote class="quote"><p>“I usually have visible facial flushing during presentations. With CoolSense, the redness was significantly reduced. I felt much more composed.”</p><footer><span class="who">Ink Gu</span><span class="muted">Reduced flushing</span></footer></blockquote>
+      <blockquote class="quote"><p>“As soon as I started feeling my palms heat up, it kicked in. I hope the battery module can be made more compact in the future.”</p><footer><span class="who">Shawn Dong</span><span class="muted">Quick response</span></footer></blockquote>
+      <blockquote class="quote"><p>“I like that it doesn’t constantly intervene, only when I actually need it. Compared to meditation or rehearsals, this feels more practical.”</p><footer><span class="who">Yiqi Kuang</span><span class="muted">On-demand</span></footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LucidLoop ================= -->
+<section class="ch" id="lucidloop" aria-labelledby="ll-t" data-c="var(--ll-acc)">
+  <div class="orb" aria-hidden="true" style="width:420px;height:420px;left:-120px;top:8%;background:#B9B2FF"></div>
+  <div class="orb" aria-hidden="true" style="width:360px;height:360px;right:-100px;top:45%;background:#9FD0F5;animation-duration:22s"></div>
+  <div class="wrap" style="position:relative">
+    <div class="ch-head">
+      <div>
+        <div class="ch-kicker"><span class="mono">Dream</span><span class="mono">·</span><span class="mono">Wearable + mobile app</span></div>
+        <h2 id="ll-t">LucidLoop</h2>
+        <p class="sub">Redefining the dream experience.</p>
+        <div class="tags"><span>#EEG</span><span>#SleepTech</span><span>#GenerativeAI</span><span>#ServiceDesign</span></div>
+      </div>
+      <div>
+        <div class="summary">
+          <p>LucidLoop is a dream visualization and journaling system. An optional EEG headband monitors sleep; on waking, users voice-record what they remember and receive AI-generated visual recaps.</p>
+          <p>Instead of artificially inducing dreams, it protects natural dream continuity, with pre-sleep reinforcement that helps people re-enter or extend a dream narrative.</p>
+        </div>
+        <div class="actions"><button class="btn solid" type="button" data-boards="11-15"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>Original boards</button></div>
+      </div>
+    </div>
+
+    <div class="row g-hero" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)">
+      <button class="zoom dark-plate" data-src="ll-exploded.webp" data-cap="Exploded headband: EEG electrode array, low-power EEG processor, micro haptic motor, REM infrared motion sensor, bone conduction audio module, BLE chip, flexible PCB."><img src="ll-exploded.webp" alt="Exploded render of the LucidLoop headband components" loading="lazy" decoding="async" style="height:100%;object-fit:contain"></button>
+      <button class="zoom" data-src="ll-future.webp" data-cap="Headband render on a figure."><img src="ll-future.webp" alt="Render of a person wearing the LucidLoop headband" loading="lazy" decoding="async" style="height:100%;object-fit:cover"></button>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Survey · 122 participants</p><h3>Most people dream often and forget almost all of it</h3></div>
+      <div class="body"><p>A survey on dream habits, lucid awareness and attitudes toward recording dreams. Most respondents were 18–34, with 43.4% aged 18–24.</p></div>
+    </div>
+    <div class="stats" aria-label="Survey results">
+      <div class="stat"><b data-count="73.8" data-suf="%">73.8%</b><span>dream several times a week or daily</span></div>
+      <div class="stat"><b data-count="87.7" data-suf="%">87.7%</b><span>remember only fragments, or almost nothing</span></div>
+      <div class="stat"><b data-count="66.4" data-suf="%">66.4%</b><span>woke before a dream ended and couldn’t go back</span></div>
+      <div class="stat"><b data-count="63.1" data-suf="%">63.1%</b><span>have heard of lucid dreaming, and 37.7% experienced it</span></div>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)">
+      <div>
+        <p class="mono lbl-s" style="margin-top:12px">Interest in dream features</p>
+        <div class="bars">
+          <div class="bar-r"><span>Enhance dream awareness &amp; control</span><span class="t"><i style="width:80.3%"></i></span><span class="v">80.3%</span></div>
+          <div class="bar-r"><span>Continue a dream in the next sleep</span><span class="t"><i style="width:70.5%"></i></span><span class="v">70.5%</span></div>
+          <div class="bar-r"><span>Analyze keywords and symbols</span><span class="t"><i style="width:62.3%"></i></span><span class="v">62.3%</span></div>
+          <div class="bar-r"><span>Record dreams to prevent forgetting</span><span class="t"><i style="width:54.9%"></i></span><span class="v">54.9%</span></div>
+          <div class="bar-r"><span>Preserve dreams as visuals or stories</span><span class="t"><i style="width:52.5%"></i></span><span class="v">52.5%</span></div>
+          <div class="bar-r"><span>Understand emotion–memory–stress links</span><span class="t"><i style="width:50.8%"></i></span><span class="v">50.8%</span></div>
+          <div class="bar-r"><span>Customize dream plots</span><span class="t"><i style="width:25.4%"></i></span><span class="v">25.4%</span></div>
+        </div>
+      </div>
+      <div class="grid" style="align-content:start">
+        <p class="mono lbl-s" style="margin-top:12px">What users asked for</p>
+        <div class="pills" style="margin-top:0">
+          <span>“I want to remix past dreams or link them into a storyline.”</span>
+          <span>“Let it generate visuals that really match my dream, not generic animations.”</span>
+          <span>“I’d love to tag dreams with emotions or themes and track them over time.”</span>
+          <span>“Remind me gently before sleep about what I wanted to dream.”</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">System flow</p><h3>Before, during and after sleep</h3></div>
+      <div class="body"><p>The app and headband share the work across the night. Training follows established techniques such as MILD (wake, recall, set intention, return to sleep) and WBTB (wake back to bed).</p></div>
+    </div>
+    <div class="flow">
+      <div class="phase"><span class="mono">Before sleep</span><h4>Set up training</h4><p>Onboarding, choose a lucid training plan and goal. The app suggests a path and sends a recap of last night’s dream as a nudge.</p></div>
+      <div class="phase"><span class="mono">During sleep</span><h4>Monitor quietly</h4><p>The headband reads EEG to detect REM windows and lucid indicators, and logs training effectiveness and sleep quality.</p></div>
+      <div class="phase"><span class="mono">After sleep</span><h4>Capture and continue</h4><p>Voice-record the dream. AI transcribes and analyzes it, generates a visual recap, and helps continue the storyline.</p></div>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1fr)">
+      <button class="zoom" data-src="ll-journey.webp" data-cap="User experience journey / service blueprint."><img src="ll-journey.webp" alt="User experience journey map" loading="lazy" decoding="async"></button>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Design</p><h3>A soft headband and a dreamlike app</h3></div>
+      <div class="body"><p>The headband is lightweight and skin-friendly (soft elastic, silicone gel) and shaped like a hairband so it is easy to take off. The app combines training, dream logging, AI visualization and sleep summaries.</p></div>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)">
+      <button class="zoom" data-src="ll-app.webp" data-cap="App screens: headset connection, record my dream, dream analysis, sleep summary."><img src="ll-app.webp" alt="LucidLoop app screens" loading="lazy" decoding="async"></button>
+      <div class="grid" style="align-content:start">
+        <button class="zoom" data-src="ll-screens.webp" data-cap="Home and lucid training flow screens."><img src="ll-screens.webp" alt="Lucid training screens" loading="lazy" decoding="async"></button>
+        <button class="zoom" data-src="ll-sketch.webp" data-cap="Headband sketches and component layout."><img src="ll-sketch.webp" alt="Pencil sketches of the headband" loading="lazy" decoding="async"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Life's End ================= -->
+<section class="ch" id="lifesend" aria-labelledby="le-t" data-c="var(--le-acc)">
+  <div class="wrap">
+    <div class="ch-head">
+      <div>
+        <div class="ch-kicker"><span class="mono">Choice</span><span class="mono">·</span><span class="mono">AI board game · 3–6 players</span></div>
+        <h2 id="le-t">Life’s End</h2>
+        <p class="sub">An AI-powered board game of hidden endings and shifting values.</p>
+        <div class="tags"><span>#AIGameplay</span><span>#HiddenEndings</span><span>#SocialInfluence</span><span>#ResourceExchange</span><span>#ReplayableLifePaths</span></div>
+      </div>
+      <div>
+        <div class="summary">
+          <p>Recommendations, ads, feeds and group pressure shape how we see our options. I once had no interest in new running shoes. After enough reviews and “super comfortable” comments, I went from “not interested” to “maybe they’re good” to adding them to my cart.</p>
+          <p>Life’s End turns that drift into play. Players move through four life stages, trading resources and uncovering private clues, while an AI console pushes events and rumors. No two endings are the same.</p>
+        </div>
+        <div class="actions"><button class="btn solid" type="button" data-boards="16-20"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg>Original boards</button></div>
+      </div>
+    </div>
+
+    <div class="row g-hero" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <button class="zoom" data-src="le-hands1.webp" data-cap="Players around the AI board console."><img src="le-hands1.webp" alt="Hands around the Life's End console on a table" loading="lazy" decoding="async"></button>
+      <button class="zoom" data-src="le-hands2.webp" data-cap="The console shows the shared life-path map."><img src="le-hands2.webp" alt="Hands around the console, second view" loading="lazy" decoding="async"></button>
+    </div>
+    <div class="stages" aria-label="Life stages"><span>Youth</span><span>Adulthood</span><span>Midlife</span><span>Old Age</span></div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Research</p><h3>Values are shaped by limited information</h3></div>
+      <div class="body">
+        <p>Incomplete, biased and fragmented information leads to group polarization, value distortion and one-sided interpretation, which in turn change how people vote, spend and form social attitudes.</p>
+        <p class="keyline">Players should feel the tension between public opinion and personal judgment, and notice how their stance was shaped.</p>
+        <p>References: Buckminster Fuller’s World Game, and the hidden-information mechanics of The Resistance and Avalon, shifted toward life values and path selection.</p>
+      </div>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1fr)">
+      <button class="zoom" data-src="le-research.webp" data-cap="Research map: how external information shapes society and the individual."><img src="le-research.webp" alt="Research diagram on social and group influence" loading="lazy" decoding="async"></button>
+    </div>
+
+    <div class="sec sec-h">
+      <div><p class="mono lbl-s">Game setting</p><h3>One AI console, private phones</h3></div>
+      <div class="body">
+        <p>The desktop AI host distributes cards, generates events, tracks resources and adjusts the storyline. Each player’s phone shows their identity, goal and private hints, which keeps information asymmetric. A few physical markers and task boards keep the tabletop feel, and the host archives every decision for replay.</p>
+      </div>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)">
+      <button class="zoom" data-src="le-ui.webp" data-cap="Console UI: resource tracking (housing, routes, task points), events, public rumors and the life-path map."><img src="le-ui.webp" alt="Game console interface designs" loading="lazy" decoding="async"></button>
+      <div class="grid" style="align-content:start">
+        <div class="callout">“Someone is secretly accumulating wealth.” Public events are rumors with no confirmed source. They shape how the group perceives and trusts each other.</div>
+        <button class="zoom" data-src="le-render2.webp" data-cap="Console renders."><img src="le-render2.webp" alt="3D renders of the game console" loading="lazy" decoding="async"></button>
+      </div>
+    </div>
+    <div class="roles">
+      <button type="button" class="role r1" aria-pressed="false"><span class="face"><span class="mono">Role · tap to flip</span><h4>Explorer</h4><p>Skilled at gathering hidden clues and acquiring more private information.</p></span><span class="back"><span class="hint">Abilities</span><p>Insight Scan · Logic Merge · Relic Decipher</p><p>“You found a hidden clue.”</p></span></button>
+      <button type="button" class="role r2" aria-pressed="false"><span class="face"><span class="mono">Role · tap to flip</span><h4>Trader</h4><p>Specializes in resource exchange and information brokering.</p></span><span class="back"><span class="hint">Abilities</span><p>Quick Deal · Clause Audit · Reputation Leverage</p><p>“A new deal is available.”</p></span></button>
+      <button type="button" class="role r3" aria-pressed="false"><span class="face"><span class="mono">Role · tap to flip</span><h4>Hermit</h4><p>Acts discreetly, withholding critical intelligence until the right moment.</p></span><span class="back"><span class="hint">Abilities</span><p>Whisper Reading · Key Interpretation · Meditate</p><p>“You are hidden in the shadows.”</p></span></button>
+    </div>
+    <div class="row" style="grid-template-columns:minmax(0,1fr)">
+      <button class="zoom" data-src="le-app.webp" data-cap="Player app: choose your ending (wealth, freedom, relationship, knowledge), character pages and inventories."><img src="le-app.webp" alt="Player app screens for character, ending and inventory" loading="lazy" decoding="async"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Boards ================= -->
+<section id="boards" aria-labelledby="b-t" data-c="var(--ink)">
+  <div class="wrap">
+    <p class="mono" style="color:var(--muted);margin-bottom:16px">Archive · 20 boards</p>
+    <h2 id="b-t">The original boards</h2>
+    <p style="margin-top:14px;max-width:56ch;color:var(--muted)">Every page of the printed portfolio. Click a board to open it, then swipe or use the arrow keys. Press Zoom or double-click to read the details.</p>
+    <div class="filters" role="group" aria-label="Filter boards">
+      <button type="button" aria-pressed="true" data-f="all">All</button>
+      <button type="button" aria-pressed="false" data-f="hw"><i class="dot" style="background:var(--hw-acc)"></i>HaptiWind</button>
+      <button type="button" aria-pressed="false" data-f="cs"><i class="dot" style="background:#111;box-shadow:inset 0 0 0 3px var(--cs-acc)"></i>CoolSense</button>
+      <button type="button" aria-pressed="false" data-f="ll"><i class="dot" style="background:var(--ll-acc)"></i>LucidLoop</button>
+      <button type="button" aria-pressed="false" data-f="le"><i class="dot" style="background:var(--le-acc)"></i>Life’s End</button>
+    </div>
+    <div class="board-grid" id="bgrid"></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <h2>Let’s make technology feel something.</h2>
+    <div class="cols">
+      <div><p class="mono">Designed by</p><p style="font-family:var(--f-display);font-size:clamp(24px,2.6vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.1">Yufei (Ella) Fan</p></div>
+      <div><p class="mono">Focus</p><p>Interaction design, wearables and tangible interfaces</p></div>
+    </div>
+    <p class="fine">Figures from third-party sources (Yerkes–Dodson chart, anatomy and reference images) are cited on the original boards.</p>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb-bg" id="lbbg"></div>
+  <div class="lb-top"><span class="lb-cap" id="lbcap"></span><div style="display:flex;gap:8px"><button type="button" id="lbzoom">Zoom</button><button type="button" id="lbx" aria-label="Close">Close</button></div></div>
+  <div class="lb-stage" id="lbstage"><img id="lbimg" alt=""></div>
+  <div class="lb-bot"><button type="button" id="lbp" aria-label="Previous">←</button><span class="lb-dots" id="lbdots"></span><button type="button" id="lbnx" aria-label="Next">→</button></div>
+</div>
+
+<script>
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+  /* ---------- hero wind canvas ---------- */
+  const cv=$('#wind'),ctx=cv.getContext('2d');
+  const cols=['15,169,190','91,155,224','90,73,226','224,127,52'];
+  let W=0,H=0,P=[],mx=-9999,my=-9999,t=0;
+  function size(){const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    const n=Math.round(Math.min(220,W*H/5200));P=[];for(let i=0;i<n;i++)P.push(spawn(true));}
+  function spawn(any){return{x:any?Math.random()*W:-20,y:Math.random()*H,v:.6+Math.random()*1.4,c:cols[(Math.random()*4)|0],a:.10+Math.random()*.22}}
+  function step(){
+    ctx.fillStyle='rgba(242,242,239,0.16)';ctx.fillRect(0,0,W,H);
+    for(let k=P.length-1;k>=0;k--){const p=P[k];
+      const ang=(Math.sin(p.y*.006+t*.0009)*.9+Math.cos(p.x*.004-t*.0006)*.5)*.55;let vx=Math.cos(ang)*p.v*1.6,vy=Math.sin(ang)*p.v*1.6;
+      const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;
+      if(d2<26000){const f=(26000-d2)/26000*3.2,d=Math.sqrt(d2)||1;vx+=dx/d*f;vy+=dy/d*f;}
+      ctx.strokeStyle=`rgba(${p.c},${p.a})`;ctx.lineWidth=p.burst?1.8:1.2;ctx.beginPath();ctx.moveTo(p.x,p.y);p.x+=vx;p.y+=vy;ctx.lineTo(p.x,p.y);ctx.stroke();
+      if(p.x>W+20||p.y<-20||p.y>H+20){if(p.burst)P.splice(k,1);else Object.assign(p,spawn(false));}
+    }
+    t+=16;
+  }
+  size();for(let i=0;i<90;i++)step();
+  addEventListener('resize',()=>{size();for(let i=0;i<60;i++)step();});
+  const hero=$('.hero');
+  hero.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+  hero.addEventListener('pointerleave',()=>{mx=my=-9999});
+  hero.addEventListener('click',e=>{if(e.target.closest('a')||reduce)return;const r=cv.getBoundingClientRect();
+    for(let i=0;i<46;i++)P.push({x:e.clientX-r.left,y:e.clientY-r.top+(Math.random()-.5)*70,v:2.2+Math.random()*3,c:cols[(Math.random()*4)|0],a:.55,burst:1});});
+  let heroVis=true;new IntersectionObserver(es=>{heroVis=es[0].isIntersecting}).observe(hero);
+
+  /* ---------- CoolSense frost particles ---------- */
+  const fc=$('#frost'),fx=fc.getContext('2d'),cs=$('#coolsense');let FW=0,FH=0,F=[];
+  function fsize(){const d=Math.min(2,devicePixelRatio||1);FW=cs.offsetWidth;FH=Math.min(cs.offsetHeight,1400);fc.width=FW*d;fc.height=FH*d;fc.style.height=FH+'px';fx.setTransform(d,0,0,d,0,0);
+    F=Array.from({length:70},()=>({x:Math.random()*FW,y:Math.random()*FH,r:.6+Math.random()*1.8,s:.15+Math.random()*.4,o:.15+Math.random()*.45}));}
+  function fstep(){fx.clearRect(0,0,FW,FH);for(const f of F){f.y+=f.s;f.x+=Math.sin((f.y+f.r*90)/60)*.25;if(f.y>FH)f.y=-4;fx.fillStyle=`rgba(150,195,240,${f.o})`;fx.beginPath();fx.arc(f.x,f.y,f.r,0,7);fx.fill();}}
+  fsize();fstep();addEventListener('resize',fsize);
+  let csVis=false;new IntersectionObserver(es=>{csVis=es[0].isIntersecting}).observe(cs);
+
+  /* ---------- HaptiWind gust lines ---------- */
+  const g=$('.gust');for(let i=0;i<9;i++){const el=document.createElement('i');el.style.top=(5+Math.random()*90)+'%';el.style.animationDuration=(7+Math.random()*9)+'s';el.style.animationDelay=(-Math.random()*12)+'s';g.appendChild(el);}
+
+  if(!reduce){(function loop(){if(!document.hidden){if(heroVis)step();if(csVis)fstep();}requestAnimationFrame(loop)})();}
+
+  /* ---------- index card tilt ---------- */
+  $$('.tilt').forEach(c=>{
+    c.addEventListener('pointermove',e=>{if(reduce)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.transform=`rotateX(${(.5-y)*10}deg) rotateY(${(x-.5)*12}deg) translateY(-4px)`;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');});
+    c.addEventListener('pointerleave',()=>{c.style.transform='';});
+  });
+
+  /* ---------- button ripple ---------- */
+  document.addEventListener('pointerdown',e=>{const b=e.target.closest('.btn,.filters button,.lb button');if(!b||reduce)return;const r=b.getBoundingClientRect(),s=Math.max(r.width,r.height);
+    const sp=document.createElement('span');sp.className='ripple';sp.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-r.left-s/2}px;top:${e.clientY-r.top-s/2}px`;b.appendChild(sp);setTimeout(()=>sp.remove(),650);});
+
+  /* ---------- role cards flip ---------- */
+  $$('.role').forEach(r=>r.addEventListener('click',()=>{const f=r.classList.toggle('flip');r.setAttribute('aria-pressed',f);}));
+
+  /* ---------- chapter titles split into letters ---------- */
+  $$('.ch h2').forEach(h=>{const txt=h.textContent;h.setAttribute('aria-label',txt);h.innerHTML=[...txt].map((ch,i)=>`<span class="ch-l" aria-hidden="true" style="--i:${i}">${ch===' '?'&nbsp;':ch}</span>`).join('');});
+
+  /* ---------- count-up numbers ---------- */
+  function countUp(b){if(reduce||b.dataset.done)return;b.dataset.done=1;const raw=b.dataset.count,end=parseFloat(raw),suf=b.dataset.suf||'',pad=+b.dataset.pad||0,dec=(raw.split('.')[1]||'').length,t0=performance.now(),dur=1300;
+    (function tick(now){const k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);let v=pad?String(Math.round(end*e)).padStart(pad,'0'):(end*e).toFixed(dec);b.textContent=v+suf;if(k<1)requestAnimationFrame(tick);})(t0);}
+
+  /* ---------- scroll reveal: only elements below the first screen, so the page is complete at rest ---------- */
+  const fold=innerHeight*0.98;
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;const el=en.target;io.unobserve(el);
+      el.classList.add('in');
+      el.querySelectorAll('[data-count]').forEach(countUp);
+      if(el.matches('.bar-r')){const i=el.querySelector('.t i');setTimeout(()=>{i.style.width=i.dataset.w;},120);}
+      if(el.matches('.step'))setTimeout(()=>el.classList.add('lit'),300);
+    }),{rootMargin:'0px 0px -8% 0px'});
+  if(!reduce){
+    const groups=['.ch h2','.ch-kicker','.ch .sub','.tags','.summary','.actions','.sec-h > *','.stat','.step','.plan','.quote','.phase','.pills span','.zone div','.principle','.tbl-wrap','.stages span','.callout','.role','.figure figcaption','.bar-r','#boards h2','.foot h2'];
+    groups.forEach(sel=>$$(sel).forEach((el,i)=>{
+      if(el.getBoundingClientRect().top<fold){if(el.matches('.step'))el.classList.add('lit');return;}
+      el.classList.add(el.matches('.ch h2')?'split':'rv');el.style.setProperty('--d',(i%6)*80+'ms');
+      if(el.matches('.bar-r')){const b=el.querySelector('.t i');b.dataset.w=b.style.width;b.style.width='0%';}
+      io.observe(el);
+    }));
+    $$('.zoom').forEach((z,i)=>{if(z.getBoundingClientRect().top>=fold){z.classList.add('rv','rv-img');z.style.setProperty('--d',(i%3)*90+'ms');io.observe(z);}});
+  }else{$$('.step').forEach(s=>s.classList.add('lit'));}
+
+  /* ---------- nav: active section + progress bar ---------- */
+  const links=$$('.nav a.lnk'),prog=$('#prog'),secs=$$('main > section');
+  function onScroll(){
+    const h=document.documentElement,sc=h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight);prog.style.transform=`scaleX(${sc})`;
+    let cur=null;secs.forEach(s=>{const r=s.getBoundingClientRect();if(r.top<innerHeight*.4&&r.bottom>innerHeight*.4)cur=s;});
+    links.forEach(l=>l.classList.toggle('on',!!cur&&l.getAttribute('href')==='#'+cur.id));
+    prog.style.background=cur?cur.dataset.c:'var(--ink)';
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* ---------- boards grid ---------- */
+  const proj=i=>i<=5?'hw':i<=10?'cs':i<=15?'ll':'le';
+  const names={hw:'HaptiWind',cs:'CoolSense',ll:'LucidLoop',le:'Life’s End'};
+  const grid=$('#bgrid');
+  const boards=[];for(let i=1;i<=20;i++){const n=String(i).padStart(2,'0');boards.push({src:`board-${n}.webp`,cap:`${names[proj(i)]} · board ${i} of 20`,p:proj(i)});}
+  boards.forEach((b,i)=>{const bt=document.createElement('button');bt.type='button';bt.dataset.p=b.p;bt.setAttribute('aria-label','Open '+b.cap);
+    bt.innerHTML=`<img src="${b.src}" alt="" loading="lazy" decoding="async"><span class="pg">${String(i+1).padStart(2,'0')}</span>`;
+    bt.addEventListener('click',()=>openLB(boards,i,bt.querySelector('img')));grid.appendChild(bt);
+    if(!reduce&&bt.getBoundingClientRect().top>=fold){bt.classList.add('rv');bt.style.setProperty('--d',(i%4)*70+'ms');io.observe(bt);}});
+  $$('.filters button').forEach(b=>b.addEventListener('click',()=>{
+    $$('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    const f=b.dataset.f;let k=0;grid.querySelectorAll('button').forEach(x=>{const show=f==='all'||x.dataset.p===f;x.hidden=!show;x.classList.remove('pop');x.classList.add('in');
+      if(show&&!reduce){void x.offsetWidth;x.style.animationDelay=(k++*45)+'ms';x.classList.add('pop');}});}));
+
+  /* ---------- lightbox: zooms out of the clicked picture ---------- */
+  const lb=$('#lb'),img=$('#lbimg'),cap=$('#lbcap'),stage=$('#lbstage'),dots=$('#lbdots');
+  let set=[],idx=0,last=null,origin=null;
+  function flipFrom(rect){
+    if(reduce||!rect)return;
+    const to=img.getBoundingClientRect();if(!to.width)return;
+    img.style.transition='none';
+    img.style.transform=`translate(${rect.left-to.left}px,${rect.top-to.top}px) scale(${rect.width/to.width},${rect.height/to.height})`;
+    void img.offsetWidth;
+    img.style.transition='transform .6s cubic-bezier(.2,.8,.2,1)';img.style.transform='none';
+  }
+  function setDots(){dots.innerHTML=set.length>1?set.map((_,i)=>`<i class="${i===idx?'on':''}"></i>`).join(''):'';}
+  function show(dir){
+    const it=set[idx];cap.textContent=it.cap+(set.length>1?`  ·  ${idx+1} / ${set.length}`:'');
+    $('#lbp').hidden=$('#lbnx').hidden=set.length<2;stage.classList.remove('full');$('#lbzoom').textContent='Zoom';
+    setDots();
+    if(dir&&!reduce){
+      img.style.transition='transform .2s ease, opacity .2s';img.style.transform=`translateX(${-dir*60}px)`;img.style.opacity='0';
+      setTimeout(()=>{img.src=it.src;img.alt=it.cap;img.style.transition='none';img.style.transform=`translateX(${dir*60}px)`;void img.offsetWidth;
+        img.style.transition='transform .42s cubic-bezier(.2,.8,.2,1), opacity .42s';img.style.transform='none';img.style.opacity='1';},190);
+    }else{img.src=it.src;img.alt=it.cap;}
+  }
+  function openLB(s,i,thumb){
+    set=s;idx=i;last=document.activeElement;origin=thumb||null;
+    lb.hidden=false;document.body.style.overflow='hidden';img.style.opacity='1';img.style.transform='';
+    show(0);
+    const rect=thumb?thumb.getBoundingClientRect():null;
+    const go=()=>{if(!rect&&!reduce){img.style.transition='none';img.style.transform='scale(.9)';img.style.opacity='0';void img.offsetWidth;img.style.transition='transform .5s cubic-bezier(.2,.8,.2,1), opacity .4s';img.style.transform='none';img.style.opacity='1';}else flipFrom(rect);
+      requestAnimationFrame(()=>lb.classList.add('open'));};
+    if(img.complete&&img.naturalWidth)go();else img.onload=()=>{img.onload=null;go();};
+    $('#lbx').focus({preventScroll:true});
+  }
+  function close(){
+    lb.classList.remove('open');
+    const back=origin&&set[idx].src===origin.getAttribute('src')&&!reduce&&!stage.classList.contains('full');
+    if(back){const to=img.getBoundingClientRect(),r=origin.getBoundingClientRect();img.style.transition='transform .45s cubic-bezier(.4,0,.2,1)';img.style.transform=`translate(${r.left-to.left}px,${r.top-to.top}px) scale(${r.width/to.width},${r.height/to.height})`;}
+    else if(!reduce){img.style.transition='opacity .3s, transform .3s';img.style.opacity='0';img.style.transform='scale(.94)';}
+    setTimeout(()=>{lb.hidden=true;img.style.transition='none';img.style.transform='';img.style.opacity='1';document.body.style.overflow='';if(last)last.focus({preventScroll:true});},reduce?0:440);
+  }
+  const prev=()=>{if(set.length<2)return;idx=(idx-1+set.length)%set.length;show(-1)};
+  const next=()=>{if(set.length<2)return;idx=(idx+1)%set.length;show(1)};
+  $('#lbx').onclick=close;$('#lbp').onclick=prev;$('#lbnx').onclick=next;
+  $('#lbzoom').onclick=()=>{const f=stage.classList.toggle('full');$('#lbzoom').textContent=f?'Fit':'Zoom';};
+  $('#lbbg').addEventListener('click',close);
+  stage.addEventListener('click',e=>{if(e.target===stage)close();});
+  img.addEventListener('dblclick',()=>$('#lbzoom').click());
+  addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();});
+  let sx=null;stage.addEventListener('pointerdown',e=>{if(!stage.classList.contains('full'))sx=e.clientX;});
+  stage.addEventListener('pointerup',e=>{if(sx===null)return;const d=e.clientX-sx;sx=null;if(Math.abs(d)>50){d<0?next():prev();}});
+
+  $$('section.ch').forEach(sec=>{
+    const zs=[...sec.querySelectorAll('.zoom')];const s=zs.map(z=>({src:z.dataset.src,cap:z.dataset.cap||''}));
+    zs.forEach((z,i)=>z.addEventListener('click',()=>openLB(s,i,z.querySelector('img'))));
+  });
+  $$('[data-boards]').forEach(b=>b.addEventListener('click',()=>{const[a,z]=b.dataset.boards.split('-').map(Number);openLB(boards.slice(a-1,z),0,null);}));
+})();
+</script>
+
+</body>
+</html>
